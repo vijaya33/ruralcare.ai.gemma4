@@ -1,5 +1,8 @@
 <Solution>
   <Project Path="RuralCare.AI.Orchestrator/RuralCare.AI.Orchestrator.csproj" Id="8e0a0a51-657b-4bbe-bbb2-2213f3187564" />
   <Project Path="RuralCare.API/RuralCare.API.csproj" Id="912443cf-ab53-4a0b-a311-483a82824e32" />
+  <Project Path="RuralCare.Infrastructure/RuralCare.Infrastructure.csproj" Id="85f6a96c-45c2-4a1c-b80e-203540418021" />
+  <Project Path="RuralCare.OCR/RuralCare.OCR.csproj" Id="24bb4ef6-d125-42c8-88a6-d36144877c6a" />
+  <Project Path="RuralCare.Tests/RuralCare.Tests.csproj" Id="1b722378-3fb9-46ab-b768-39dd4d76f90b" />
   <Project Path="RuralCare.Web/RuralCare.Web.csproj" />
 </Solution>
