@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="RuralCare.AI.Orchestrator/RuralCare.AI.Orchestrator.csproj" Id="8e0a0a51-657b-4bbe-bbb2-2213f3187564" />
+  <Project Path="RuralCare.API/RuralCare.API.csproj" Id="912443cf-ab53-4a0b-a311-483a82824e32" />
+  <Project Path="RuralCare.Web/RuralCare.Web.csproj" />
+</Solution>
