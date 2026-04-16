@@ -1,0 +1,142 @@
+﻿@page "/intake"
+@using RuralCare.Web.Models
+@using RuralCare.Web.Services
+@inject TriageApiService TriageApiService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Patient Intake</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Patient Intake Form</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Patient Name</label>
+                                <InputText class="form-control" @bind-Value="intakeModel.PatientName" />
+                                <ValidationMessage For="@(() => intakeModel.PatientName)" />
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Age</label>
+                                <InputNumber class="form-control" @bind-Value="intakeModel.Age" />
+                                <ValidationMessage For="@(() => intakeModel.Age)" />
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Gender</label>
+                                <InputSelect class="form-select" @bind-Value="intakeModel.Gender">
+                                    <option value="">Select</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>Other</option>
+                                </InputSelect>
+                                <ValidationMessage For="@(() => intakeModel.Gender)" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Preferred Language</label>
+                                <InputSelect class="form-select" @bind-Value="intakeModel.PreferredLanguage">
+                                    <option>English</option>
+                                    <option>Spanish</option>
+                                    <option>Hindi</option>
+                                    <option>Telugu</option>
+                                    <option>Arabic</option>
+                                    <option>Swahili</option>
+                                </InputSelect>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Village / Location</label>
+                                <InputText class="form-control" @bind-Value="intakeModel.VillageOrLocation" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Symptoms</label>
+                            <InputTextArea class="form-control" rows="5" @bind-Value="intakeModel.Symptoms" />
+                            <ValidationMessage For="@(() => intakeModel.Symptoms)" />
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <InputCheckbox class="form-check-input" @bind-Value="intakeModel.HasReferralDocument" />
+                                    <label class="form-check-label">Referral document available</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <InputCheckbox class="form-check-input" @bind-Value="intakeModel.HasWoundImage" />
+                                    <label class="form-check-label">Wound image available</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary" disabled="@isSubmitting">
+                                @(isSubmitting ? "Analyzing..." : "Submit for AI Triage")
+                            </button>
+
+                            <button type="button" class="btn btn-outline-secondary" @onclick="ResetForm">
+                                Reset
+                            </button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h5 class="mb-0">Demo Notes</h5>
+                </div>
+                <div class="card-body">
+                    <p>This screen simulates the first step of the RuralCare AI clinical workflow.</p>
+                    <ul>
+                        <li>Capture patient details</li>
+                        <li>Enter symptoms</li>
+                        <li>Flag referral/wound inputs</li>
+                        <li>Generate AI-assisted triage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private PatientIntakeModel intakeModel = new();
+    private bool isSubmitting;
+
+    private async Task HandleSubmit()
+    {
+        isSubmitting = true;
+
+        var result = await TriageApiService.AnalyzeAsync(intakeModel);
+
+        TriageState.CurrentResult = result;
+        TriageState.LastPatientName = intakeModel.PatientName;
+
+        isSubmitting = false;
+
+        NavigationManager.NavigateTo("/triage");
+    }
+
+    private void ResetForm()
+    {
+        intakeModel = new PatientIntakeModel();
+    }
+}

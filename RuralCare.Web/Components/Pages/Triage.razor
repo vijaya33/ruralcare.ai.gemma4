@@ -1,0 +1,90 @@
+﻿@page "/triage"
+@using RuralCare.Web.Services
+
+<PageTitle>Triage Result</PageTitle>
+
+<div class="container py-4">
+    @if (TriageState.CurrentResult is null)
+    {
+        <div class="alert alert-warning">
+            No triage result is available yet. Please complete the intake form first.
+        </div>
+
+        <a class="btn btn-primary" href="/intake">Go to Intake</a>
+    }
+    else
+    {
+        var result = TriageState.CurrentResult;
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">AI Triage Result</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Patient:</strong> @TriageState.LastPatientName</p>
+                        <p>
+                            <strong>Risk Level:</strong>
+                            <span class="badge @(GetRiskBadgeClass(result.RiskLevel)) ms-2">
+                                @result.RiskLevel
+                            </span>
+                        </p>
+                        <p><strong>Confidence:</strong> @result.Confidence</p>
+
+                        <hr />
+
+                        <h5>SOAP Note</h5>
+                        <div class="p-3 bg-light border rounded">
+                            @result.SoapNote
+                        </div>
+
+                        <hr />
+
+                        <h5>Recommendation</h5>
+                        <div class="alert alert-info">
+                            @result.Recommendation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5 class="mb-0">Suggested Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            @foreach (var action in result.SuggestedActions)
+                            {
+                                <li>@action</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-3 d-grid gap-2">
+                    <a class="btn btn-primary" href="/intake">New Intake</a>
+                    <button class="btn btn-outline-secondary" @onclick="ClearResult">Clear Result</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private string GetRiskBadgeClass(string riskLevel) => riskLevel switch
+    {
+        "High" => "bg-danger",
+        "Moderate" => "bg-warning text-dark",
+        "Low" => "bg-success",
+        _ => "bg-secondary"
+    };
+
+    private void ClearResult()
+    {
+        TriageState.CurrentResult = null;
+        TriageState.LastPatientName = string.Empty;
+    }
+}
