@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RuralCare.AI.Orchestrator\RuralCare.AI.Orchestrator.csproj" />
+    <ProjectReference Include="..\RuralCare.Contracts\RuralCare.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

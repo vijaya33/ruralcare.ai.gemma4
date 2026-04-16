@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RuralCare.API.Models;
 using RuralCare.API.Services;
+using RuralCare.Contracts.Models;
 
 namespace RuralCare.API.Controllers
 {

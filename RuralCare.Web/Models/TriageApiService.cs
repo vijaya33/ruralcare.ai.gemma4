@@ -1,43 +1,38 @@
 ﻿
-using RuralCare.Web.Models;
+//using System.Net.Http.Json;
+//using RuralCare.Web.Models;
 
-namespace RuralCare.Web.Services
-{
+//namespace RuralCare.Web.Services
+//{
+//    public class TriageApiService
+//    {
+//        private readonly HttpClient _httpClient;
 
-    public class TriageApiService
-    {
-        public async Task<TriageResultModel> AnalyzeAsync(PatientIntakeModel model)
-        {
-            await Task.Delay(1200);
+//        public TriageApiService(HttpClient httpClient)
+//        {
+//            _httpClient = httpClient;
+//        }
 
-            var risk = "Moderate";
-            var recommendation = "Clinician review recommended within 30 minutes.";
+//        public async Task<TriageResultModel> AnalyzeAsync(PatientIntakeModel model)
+//        {
+//            var response = await _httpClient.PostAsJsonAsync("api/triage/analyze", model);
 
-            if (model.Symptoms.Contains("chest pain", StringComparison.OrdinalIgnoreCase) ||
-                model.Symptoms.Contains("breathing", StringComparison.OrdinalIgnoreCase) ||
-                model.Symptoms.Contains("bleeding", StringComparison.OrdinalIgnoreCase))
-            {
-                risk = "High";
-                recommendation = "Urgent escalation required. Immediate clinician attention advised.";
-            }
+//            if (!response.IsSuccessStatusCode)
+//            {
+//                var error = await response.Content.ReadAsStringAsync();
 
-            return new TriageResultModel
-            {
-                RiskLevel = risk,
-                Confidence = "94%",
-                SoapNote = $"S: Patient reports {model.Symptoms}. " +
-                           $"O: Initial intake captured for {model.PatientName}, age {model.Age}. " +
-                           $"A: AI-assisted preliminary triage indicates {risk} risk. " +
-                           $"P: {recommendation}",
-                Recommendation = recommendation,
-                SuggestedActions = new List<string>
-            {
-                "Review symptoms with on-site nurse",
-                "Validate referral documentation",
-                "Capture vitals and oxygen saturation",
-                "Escalate if symptoms worsen"
-            }
-            };
-        }
-    }
-}
+//                throw new ApplicationException(
+//                    $"Triage API call failed. Status: {(int)response.StatusCode}, Details: {error}");
+//            }
+
+//            var result = await response.Content.ReadFromJsonAsync<TriageResultModel>();
+
+//            if (result is null)
+//            {
+//                throw new ApplicationException("Triage API returned an empty response.");
+//            }
+
+//            return result;
+//        }
+//    }
+//}

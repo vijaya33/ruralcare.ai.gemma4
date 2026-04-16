@@ -1,5 +1,4 @@
-﻿@page "/intake"
-@rendermode InteractiveServer
+﻿@page "/intakexxxxxxx"
 @using RuralCare.Contracts.Models
 @using RuralCare.Web.Services
 @inject TriageApiService TriageApiService
@@ -15,14 +14,9 @@
                     <h3 class="mb-0">Patient Intake Form</h3>
                 </div>
                 <div class="card-body">
-                   @*  <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit">
-
+                    <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit">
                         <DataAnnotationsValidator />
                         <ValidationSummary />
- *@
-                        <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit" FormName="PatientIntakeForm">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary />
 
                         <div class="row mb-3">
                             <div class="col-md-6">

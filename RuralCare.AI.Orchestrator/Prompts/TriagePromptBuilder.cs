@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RuralCare.Web.Models;
+using RuralCare.Contracts.Models;
 
 namespace RuralCare.AI.Orchestrator.Prompts
 {
 
     public static class TriagePromptBuilder
     {
-        public static string Build(PatientIntakeModel request)
+        public static string Build(PatientIntakeRequest request)
         {
             return $"""
         You are RuralCare AI powered by Gemma 4.
