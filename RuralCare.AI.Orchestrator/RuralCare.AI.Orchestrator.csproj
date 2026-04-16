@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Functions\RiskScoreFunction.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Functions\RiskScoreFunction.cs" />
+  </ItemGroup>
+
 </Project>
