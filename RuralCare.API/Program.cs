@@ -10,6 +10,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITriageService, TriageService>();
 builder.Services.AddScoped<IGemmaOrchestrator, GemmaOrchestrator>();
 
+builder.Services.AddHttpClient<Gemma4Client>();
+builder.Services.AddScoped<GemmaOrchestrator>();
+
+
+
 var app = builder.Build();
 
 app.UseSwagger();
