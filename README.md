@@ -4,6 +4,10 @@ RuralCare AI uses a layered architecture where the Blazor frontend captures mult
 # Subtitle
 An offline-first multimodal healthcare intelligence platform powered by Gemma 4
 
+# Architecture Diagrams. 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b918c19c-9b1a-48df-ae2c-a67f8e3ebf20" />
+
+
 # RuralCare AI
 
 **An offline-first multimodal healthcare intelligence platform powered by Gemma 4**
