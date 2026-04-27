@@ -8,6 +8,11 @@ An offline-first multimodal healthcare intelligence platform powered by Gemma 4
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b918c19c-9b1a-48df-ae2c-a67f8e3ebf20" />
 
 
+Actual Architecture diagram is below displaying classes and work flow: 
+
+<img width="1934" height="1324" alt="ruralcare architecture diagram" src="https://github.com/user-attachments/assets/fb94c53f-5a3c-4d27-9f21-4c7520baab0b" />
+
+
 # RuralCare AI
 
 **An offline-first multimodal healthcare intelligence platform powered by Gemma 4**
