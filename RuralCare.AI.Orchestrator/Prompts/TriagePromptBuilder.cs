@@ -11,8 +11,8 @@ namespace RuralCare.AI.Orchestrator.Prompts
     public static class TriagePromptBuilder
     {
         // Rwad only access token for 
-        static string Gemma4ReadOnlyAccessTokenOnHuggingFace = "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";
-        static string Gemma4ModelUrl = "https://huggingface.co/google/gemma-4-E2B-it";
+        //static string Gemma4ReadOnlyAccessTokenOnHuggingFace = "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";
+        //static string Gemma4ModelUrl = "https://huggingface.co/google/gemma-4-E2B-it";
 
         public static string Build(PatientIntakeRequest request)
         {
