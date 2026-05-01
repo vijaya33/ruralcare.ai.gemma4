@@ -21,8 +21,8 @@
             {
                 /* Commenting as a security feature, GitHub does not push code to public repository with a secret code in the files. */
                 /*
-                var apiKey = _configuration["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"];  // Hugging Face API Key. 
-                var modelName = _configuration["google/gemma-4-E2B-it"];  // Hugging Face Gemma 4 model name.
+                var apiKey = _configuration["ApiKey"];  // Hugging Face API Key. 
+                var modelName = _configuration["ModelName"];  // Hugging Face Gemma 4 model name.
                 */
                 var apiKey = "UN_COMMENT_ABOVE_CODE";
                 var modelName = "UN_COMMENT_MODEL_NAME_ABOVE"; 
