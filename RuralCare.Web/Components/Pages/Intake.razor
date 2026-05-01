@@ -91,6 +91,11 @@
                                 @(isSubmitting ? "Analyzing..." : "Submit for AI Triage")
                             </button>
 
+
+                          @*   <button type="button" onclick="submitForAITriage()" class=" btn btn-primary" disabled="@isSubmitting">
+                                @(isSubmitting ? "Analyzing..." : "Submit for AI Triage")
+                            </button> *@
+
                             <button type="button" class="btn btn-outline-secondary" @onclick="ResetForm">
                                 Reset
                             </button>
@@ -137,8 +142,26 @@
         NavigationManager.NavigateTo("/triage");
     }
 
+    // private async Task SubmitForAITriage()
+    // {
+    //     var request = new
+    //     {
+    //         patientName,
+    //         age,
+    //         symptoms,
+    //         duration,
+    //         medicalHistory
+    //     };
+
+    //     var response = await Http.PostAsJsonAsync("/api/triage/analyze", request);
+    //     var result = await response.Content.ReadAsStringAsync();
+
+    //     triageResult = result;
+    // }
+
     private void ResetForm()
     {
         intakeModel = new PatientIntakeModel();
     }
+
 }
