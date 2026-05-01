@@ -4,25 +4,6 @@ using RuralCare.API.Services;
 using RuralCare.Web.Components;
 using RuralCare.Web.Services;
 
-//var builder = WebApplication.CreateBuilder(args);
-
-//builder.Services.AddControllers();
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
-//builder.Services.AddScoped<ITriageService, TriageService>();
-//builder.Services.AddScoped<RuralCare.AI.Orchestrator.Services.IGemmaOrchestrator, RuralCare.AI.Orchestrator.Services.GemmaOrchestrator>();
-//builder.Services.AddHttpClient<Gemma4Client>();
-
-//var app = builder.Build();
-
-//app.UseSwagger();
-//app.UseSwaggerUI();
-
-//app.MapControllers();
-//app.Run();
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorComponents()
@@ -30,9 +11,8 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped(sp => new HttpClient
 {
-    BaseAddress = new Uri("https://localhost:7234/") // replace with your API HTTPS port
+    BaseAddress = new Uri("https://localhost:7288/")
 });
-
 builder.Services.AddScoped<TriageApiService>();
 builder.Services.AddScoped<RuralCare.AI.Orchestrator.Services.IGemmaOrchestrator, RuralCare.AI.Orchestrator.Services.GemmaOrchestrator>();
 builder.Services.AddHttpClient<Gemma4Client>();

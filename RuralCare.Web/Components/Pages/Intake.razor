@@ -15,11 +15,7 @@
                     <h3 class="mb-0">Patient Intake Form</h3>
                 </div>
                 <div class="card-body">
-                   @*  <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit">
-
-                        <DataAnnotationsValidator />
-                        <ValidationSummary />
- *@
+                
                         <EditForm Model="@intakeModel" OnValidSubmit="@HandleSubmit" FormName="PatientIntakeForm">
                             <DataAnnotationsValidator />
                             <ValidationSummary />

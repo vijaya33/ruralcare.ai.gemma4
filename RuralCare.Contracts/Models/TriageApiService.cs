@@ -16,8 +16,8 @@ namespace RuralCare.Web.Services
 
         public async Task<TriageResultModel> AnalyzeAsync(PatientIntakeModel model)
         {
-            var response = await _httpClient.PostAsJsonAsync("api/triage/analyze", model);
 
+            var response = await _httpClient.PostAsJsonAsync("api/Triage/analyze", model);
             if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsStringAsync();
