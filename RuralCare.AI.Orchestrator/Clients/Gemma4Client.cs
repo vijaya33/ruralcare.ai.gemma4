@@ -7,8 +7,7 @@ namespace RuralCare.AI.Orchestrator.Clients;
 public class Gemma4Client
 {
     private readonly HttpClient _httpClient;
-    string Gemma4ReadOnlyAccessTokenOnHuggingFace = "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"; 
-
+   
     public Gemma4Client(HttpClient httpClient)
     {
         _httpClient = httpClient;
