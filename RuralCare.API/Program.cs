@@ -12,7 +12,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITriageService, TriageService>();
 builder.Services.AddScoped<IGemmaOrchestrator, GemmaOrchestrator>();
 builder.Services.AddHttpClient<Gemma4Client>();
-builder.Services.AddHttpClient<XXXHuggingFaceServiceXXX>();
 builder.Services.AddHttpClient<HuggingFaceService>();
 
 var app = builder.Build();
