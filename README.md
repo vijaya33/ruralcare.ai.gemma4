@@ -1,6 +1,12 @@
 # ruralcare-ai-gemma4 
 RuralCare AI uses a layered architecture where the Blazor frontend captures multilingual patient intake, the .NET API coordinates workflow execution, and the AI Orchestrator invokes Gemma 4 for translation, summarization, SOAP note generation, and triage support. Shared contracts isolate transport models, while future modules support OCR, offline sync, and healthcare interoperability. It is A Kaggle Impact Submission Powered by Gemma 4 to demonstrate the method of harnessing the power of Gemma 4 to drive positive change and global impact. 
 
+# important note for testing the application on real time Gemma 4  model on HUGGING FACE:
+The model I chose on Hugging Face is: google/gemma-4-E2B-it
+My disabled ApiKey with READ ONLY ACCESS to Gemma 4 model on HUGIING FACE: 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
+
+New ApiKey / security code must be created for testing purpose each time, because when HUGGING FACE's READ ONLY ACCESS ApiKey / Security code is published to GitHub, it is automaticaaly disabled. 
+
 # Subtitle
 An offline-first multimodal healthcare intelligence platform powered by Gemma 4
 
