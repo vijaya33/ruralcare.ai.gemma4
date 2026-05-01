@@ -2,7 +2,10 @@
 @using RuralCare.Web.Services
 
 <PageTitle>Triage Result</PageTitle>
-
+ <div class="alert alert-warning">
+AI Engine: Gemma 4
+Model Capability: Multilingual + Clinical Reasoning
+</div>
 <div class="container py-4">
     @if (TriageState.CurrentResult is null)
     {

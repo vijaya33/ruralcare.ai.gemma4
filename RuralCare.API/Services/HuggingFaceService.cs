@@ -19,8 +19,9 @@
 
             public async Task<string> GetAIResponse(string prompt)
             {
-                var apiKey = "UN_COMMENT_ABOVE_CODE";
-                var modelName = "UN_COMMENT_MODEL_NAME_ABOVE"; 
+                var apiKey = "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";  /* this Apikey is already expired for security reasons, 
+                                                                          * renew and replace it with your own Hugging Face API key for testing */
+                var modelName = "google/gemma-4-E2B-it"; 
 
                 var request = new HttpRequestMessage(
                     HttpMethod.Post,
