@@ -7,7 +7,8 @@ using System.Text.Json;
 namespace RuralCare.API.Services
 {
 
-    public class XXXHuggingFaceServiceXXX
+    public class XXXHuggingFaceServiceXXX   /* this is an oboslete file. but can be 
+                                             * used for reference and hence not deleted. */
     {
         private readonly HttpClient _httpClient;
 

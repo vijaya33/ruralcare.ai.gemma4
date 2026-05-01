@@ -24,7 +24,7 @@
 
                 var request = new HttpRequestMessage(
                     HttpMethod.Post,
-                    $"https://api-inference.huggingface.co/models/{modelName}"
+                    $"https://api-inference.huggingface.co/models/{modelName}"  /* new code addition */
                 );
 
                 request.Headers.Authorization =

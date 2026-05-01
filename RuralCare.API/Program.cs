@@ -1,6 +1,7 @@
-using RuralCare.API.Services;
 using RuralCare.AI.Orchestrator.Clients;
 using RuralCare.AI.Orchestrator.Services;
+using RuralCare.API.Services;
+using RuralCare.API.Services.RuralCare.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddScoped<ITriageService, TriageService>();
 builder.Services.AddScoped<IGemmaOrchestrator, GemmaOrchestrator>();
 builder.Services.AddHttpClient<Gemma4Client>();
 builder.Services.AddHttpClient<XXXHuggingFaceServiceXXX>();
-// builder.Services.AddHttpClient<HuggingFaceService>();
+builder.Services.AddHttpClient<HuggingFaceService>();
 
 var app = builder.Build();
 
