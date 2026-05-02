@@ -3,9 +3,11 @@ RuralCare AI uses a layered architecture where the Blazor frontend captures mult
 
 # Important note: In order test this application against real time Gemma 4 model on HUGGING FACE:
 The model I chose on Hugging Face is: google/gemma-4-E2B-it
----
-My ApiKey with READ ONLY ACCESS to Gemma 4 model on HUGIING FACE: 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 (it is disabled now as I published it along wth code to GitHub reposiotry, so HUGGING FACE automtically disables the security key, hence a new Api Key / security code is required for testing this product). 
----
+
+My ApiKey with READ ONLY ACCESS to Gemma 4 model on HUGIING FACE: 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 
+
+(it is disabled now as I published it along wth code to GitHub reposiotry, so HUGGING FACE automtically disables the security key, hence a new Api Key / security code is required for testing this product). 
+
 # Subtitle
 An offline-first multimodal healthcare intelligence platform powered by Gemma 4
 
