@@ -10,6 +10,8 @@
         public int Age { get; set; }
         public string PreferredLanguage { get; set; } = "English";
         public string VillageOrLocation { get; set; } = string.Empty;
-
+        public bool? HasWoundImage { get; set; }
+        public string Gender { get; set; } = string.Empty;
+        public bool? HasReferralDocument { get; set; }
     }
 }

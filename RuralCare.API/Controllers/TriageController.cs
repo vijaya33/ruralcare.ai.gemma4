@@ -17,7 +17,8 @@ using RuralCare.Contracts.Models;
             }
 
             [HttpPost("analyze")]
-            public async Task<IActionResult> Analyze([FromBody] PatientTriageRequest request)
+        public async Task<ActionResult<TriageResponse>> Analyze([FromBody] PatientTriageRequest request)
+            //public async Task<IActionResult> Analyze([FromBody] PatientTriageRequest request)
             {
                 var prompt = $@"
                         You are an AI medical triage assistant.
